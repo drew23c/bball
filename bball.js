@@ -44,11 +44,13 @@ rl.on('line', function(input){
     if(input.toLowerCase === 'shoot'){
         var rPlays = Math.floor(Math.random() * plays.length);
         console.log(`${rCalls}, ${rPlays} is ${rShot}`)
-        if(rPlays === 'freeThrow'){
+        console.log(`${computer.teamName} ${computer.teamPoints}`);
+        console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
+        if(rPlays === 'freeThrow' && rShot === 'made'){
             playerOne.teamPoints += teamPoints + 1;
-        }else if(rPlays === 'jumpshot'){
+        }else if(rPlays === 'jumpshot' && rShot === 'made'){
             playerOne.teamPoints += teamPoints + 2;
-        }else if(rPlays === 'threePointShot'){
+        }else if(rPlays === 'threePointShot' && rShot === 'made'){
             playerOne.teamPoints += teamPoints + 3;
         }
     }
