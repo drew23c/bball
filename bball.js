@@ -21,29 +21,30 @@ var computer = {
 console.log('Time to play the MONSTARS\n A 3-on-3 basketball game\n First team to 21 points WINS');
 rl.setPrompt('Enter your team name');
 rl.prompt();
-
-var plays = ['jumpShot', 'threePointShot'] 
-var calls=['WWWOOOOWWW','BOOM SHAKALAKA', 'You won\t see that everyday',
-'someone\s ankle is broken', 'Man DOWN']
-var madeShot =['made','missed']
-var tVt = [playerOne.teamName, computer.teamName]
-
-var offensivePlay = ['shoot','dunk','3-pointer']
-var defensivePlay = ['defend', 'steal']
-
-var rPlays = Math.floor(Math.random() * plays.length);
-var rCalls = Math.floor(Math.random() * calls.length);
-var rShot = Math.floor(Math.random() * madeShot.length);
-var vulnerD = Math.floor(Math.random() * 5);
-var teamPool = Math.floor(Math.random() * 5)
+var i = 0;
 
 
 rl.on('line', function(input){
+    var plays = ['jumpShot', 'threePointShot'] 
+    var calls=['WWWOOOOWWW','BOOM SHAKALAKA', 'You won\t see that everyday',
+    'someone\s ankle is broken', 'Man DOWN']
+    var madeShot =['made','missed']
+    var tVt = [playerOne.teamName, computer.teamName]
+    
+    var offensivePlay = ['shoot','dunk','3-pointer']
+    var defensivePlay = ['defend', 'steal']
+    
+    var rPlays = Math.floor(Math.random() * plays[i]);
+    var rCalls = Math.floor(Math.random() * calls.length);
+    var rShot = Math.floor(Math.random() * madeShot.length);
+    var vulnerD = Math.floor(Math.random() * 5);
+    var teamPool = Math.floor(Math.random() * 5)
+    
     if(playerOne.teamName === undefined){
         playerOne.teamName = input;
     }
     console.log('JUMPBALL')
-    var jumpBall = Math.floor(Math.floor(Math.random() * 5))    
+    var jumpBall = Math.floor(Math.random() * 5)   
     if(jumpBall > 3){
         console.log(`${playerOne.teamName}'s ball`)
         rl.setPrompt('OFFENSE\n' + offensivePlay[0] + ' | ' + offensivePlay[1] + ' | ' + offensivePlay[2])
@@ -156,7 +157,7 @@ rl.on('line', function(input){
                         console.log(`${computer.teamName} ${computer.teamPoints}`);
                         console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
                     }else{
-                        computer.teamPoints += computer.teamPoints + 2;
+                        computer.teamPoints += teamPoints + 2;
                         console.log(`${computer.teamName} ${computer.teamPoints}`);
                         console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
                     }
@@ -211,12 +212,12 @@ rl.on('line', function(input){
     //     }
     // }
 
-    if(computer.teamPoints >= 21){
-        console.log(`You lost to the ${computer.teamName}, ${computer.teamPoints} to ${playerOne.teamPoints}`)
-        rl.close();
-    }else{
-        console.log(`You beat the ${computer.teamName}, ${playerOne.teamPoints} to ${computer.teamPoints}`)
-        rl.close();
-    }
+    // if(computer.teamPoints >= 21){
+    //     console.log(`You lost to the ${computer.teamName}, ${computer.teamPoints} to ${playerOne.teamPoints}`)
+    //     rl.close();
+    // }else{
+    //     console.log(`You beat the ${computer.teamName}, ${playerOne.teamPoints} to ${computer.teamPoints}`)
+    //     rl.close();
+    // }
     
 });
