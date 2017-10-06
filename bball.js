@@ -81,11 +81,10 @@ rl.on('line', function(input){
                         console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
                     } 
                         }
-                    }       
+                    }
+                        
         }
-        rl.setPrompt('DEFESE\n' + defensivePlay[0] + ' | ' + defensivePlay[1])
-        rl.prompt();
-    }else if(offensivePlay[1]){
+        else if(offensivePlay[1]){
             clear();
             rShot
             if(rShot === 'made'){
@@ -111,11 +110,7 @@ rl.on('line', function(input){
                         }
                     }
                 }
-        }
-    
-        rl.setPrompt('DEFESE\n' + defensivePlay[0] + ' | ' + defensivePlay[1])
-        rl.prompt();
-    else{
+        } else{
             clear();
             rShot
             if(rShot === 'made'){
@@ -141,9 +136,8 @@ rl.on('line', function(input){
                         }
                     }
             }
-        }
-        rl.setPrompt('DEFESE\n' + defensivePlay[0] + ' | ' + defensivePlay[1])
-        rl.prompt();
+        }  
+    }
     else{
         console.log(`${computer.teamName} ball`)
         rl.setPrompt('DEFESE\n' + defensivePlay[0] + ' | ' + defensivePlay[1])
@@ -162,7 +156,7 @@ rl.on('line', function(input){
                         console.log(`${computer.teamName} ${computer.teamPoints}`);
                         console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
                     }else{
-                        computer.teamPoints += teamPoints + 2;
+                        computer.teamPoints += computer.teamPoints + 2;
                         console.log(`${computer.teamName} ${computer.teamPoints}`);
                         console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
                     }
@@ -219,8 +213,10 @@ rl.on('line', function(input){
 
     if(computer.teamPoints >= 21){
         console.log(`You lost to the ${computer.teamName}, ${computer.teamPoints} to ${playerOne.teamPoints}`)
+        rl.close();
     }else{
         console.log(`You beat the ${computer.teamName}, ${playerOne.teamPoints} to ${computer.teamPoints}`)
+        rl.close();
     }
     
 });
