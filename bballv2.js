@@ -18,8 +18,8 @@ var computer = {
     teamPoints: 0
 }
 
-console.log('Time to play the MONSTARS\n A 3-on-3 basketball game\n First team to 21 points WINS');
-rl.setPrompt('Enter your team name');
+console.log('M-O-N-S-T-A-R-S\nA 3-on-3 basketball game\nFirst team to 21 points WINS');
+rl.setPrompt('Enter your team name\n');
 rl.prompt();
 
 
@@ -27,19 +27,12 @@ rl.on('line', function(input){
     var plays = ['jumpShot', 'threePointShot'] 
     var calls=['WWWOOOOWWW','BOOM SHAKALAKA', 'You won\t see that everyday',
     'someone\s ankle is broken', 'Man DOWN']
-    var madeShot =['made','missed']
-    var tVt = [playerOne.teamName, computer.teamName]
     
     var offensivePlay = ['shoot','dunk','3']
     var defensivePlay = ['defend', 'steal']
 
     var controls = Math.floor(Math.random() * 10);
-    
-    var rPlays = Math.floor(Math.random() * plays.length);
     var rCalls = Math.floor(Math.random() * calls.length);
-    var rShot = Math.floor(Math.random() * madeShot.length);
-    var vulnerD = Math.floor(Math.random() * 5);
-    var teamPool = Math.floor(Math.random() * 5)
     
     if(playerOne.teamName === undefined){
         playerOne.teamName = input;
@@ -53,7 +46,6 @@ rl.on('line', function(input){
             console.log(`BOOOM SHAKALAKA, I think the ground shook with that DUNK`)
             console.log(`\n${computer.teamName} ${computer.teamPoints}`);
             console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
-            console.log(`${computer.teamName} ball\n`)
             
     
     }else if(input === 'dunk' && controls < 4){
@@ -137,14 +129,14 @@ rl.on('line', function(input){
 
 
         
-        var jumpBall = Math.floor(Math.random() * 10 + 1)   
-        if(jumpBall >= 5){
+        var jumpBall = Math.floor(Math.random() * 8)   
+        if(jumpBall >= 4){
             console.log(`${playerOne.teamName}'s ball!!`)
             rl.setPrompt(`OFFENSE\ndunk | shoot | 3-pointer `)
             rl.prompt();
         }else{
             console.log(`${computer.teamName} ball!!`)
-            rl.setPrompt('DEFENSE\n defend | steal ')
+            rl.setPrompt('DEFENSE\ndefend | steal ')
             rl.prompt();
         }
     }
