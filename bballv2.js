@@ -24,19 +24,16 @@ rl.prompt();
 
 
 rl.on('line', function(input){
-    var plays = ['jumpShot', 'threePointShot'] 
-    var calls=['WWWOOOOWWW','BOOM SHAKALAKA', 'You won\t see that everyday',
-    'someone\s ankle is broken', 'Man DOWN']
     
     var offensivePlay = ['shoot','dunk','3']
     var defensivePlay = ['defend', 'steal']
 
-    var controls = Math.floor(Math.random() * 10);
-    var rCalls = Math.floor(Math.random() * calls.length);
+    var controls = Math.floor(Math.random() * 10 + 1);
     
     if(playerOne.teamName === undefined){
         playerOne.teamName = input;
     }
+    
     clear();
 
         
@@ -129,7 +126,8 @@ rl.on('line', function(input){
 
 
 
-        
+        console.log(`${playerOne.teamName} v the ${computer.teamName}`)
+        console.log(`**********JUMPBALL**********`)
         var jumpBall = Math.floor(Math.random() * 20 + 1)   
         if(jumpBall >= 10){
             console.log(`${playerOne.teamName}'s ball!!`)
