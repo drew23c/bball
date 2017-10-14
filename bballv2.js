@@ -39,7 +39,7 @@ rl.on('line', function(input){
     }
     clear();
 
-
+        
     if(input === 'dunk' && controls >= 4){ ///////SELECTED DUNK///////////
         clear();
         playerOne.teamPoints +=  2;
@@ -92,6 +92,7 @@ rl.on('line', function(input){
     if(input === 'defend' && controls >= 6){
         clear();
         computer.teamPoints +=  2;
+            console.log(`\nPoor defense by ${playerOne.teamName}`)
             console.log(`\n${computer.teamName} ${computer.teamPoints}`);
             console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
            
@@ -119,26 +120,27 @@ rl.on('line', function(input){
     }
 
     if(computer.teamPoints >= 21){
-        console.log(`The ${computer.teamName} snatched your basketball soul, ${computer.teamPoints} to ${playerOne.teamPoints}`)
+        console.log(`The ${computer.teamName} snatched your basketball soul, ${computer.teamPoints} to ${playerOne.teamPoints} ()-:`)
         rl.close();
     }else if(playerOne.teamPoints >= 21){
-        console.log(`You beat the ${computer.teamName}, ${playerOne.teamPoints} to ${computer.teamPoints}`)
+        console.log(`################You beat the ${computer.teamName}, ${playerOne.teamPoints} to ${computer.teamPoints}################`)
         rl.close();
     }else{
 
 
 
         
-        var jumpBall = Math.floor(Math.random() * 8)   
-        if(jumpBall >= 4){
+        var jumpBall = Math.floor(Math.random() * 20 + 1)   
+        if(jumpBall >= 10){
             console.log(`${playerOne.teamName}'s ball!!`)
-            rl.setPrompt(`OFFENSE\ndunk | shoot | 3-pointer `)
+            rl.setPrompt(`OFFENSE\ndunk | shoot | 3-pointer\n`)
             rl.prompt();
-        }else{
+        }else if(jumpBall < 10){
             console.log(`${computer.teamName} ball!!`)
-            rl.setPrompt('DEFENSE\ndefend | steal ')
+            rl.setPrompt('DEFENSE\ndefend | steal\n')
             rl.prompt();
         }
+        
     }
     
 });
