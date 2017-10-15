@@ -28,7 +28,7 @@ rl.on('line', function(input){
     var offensivePlay = ['shoot','dunk','3']
     var defensivePlay = ['defend', 'steal']
 
-    var controls = Math.floor(Math.random() * 10 + 1);
+    var controls = Math.floor(Math.random() * 10);
     
     if(playerOne.teamName === undefined){
         playerOne.teamName = input;
@@ -86,7 +86,7 @@ rl.on('line', function(input){
     }
 
 
-    if(input === 'defend' && controls >= 6){
+    if(input === 'defend' && controls > 5){
         clear();
         computer.teamPoints +=  2;
             console.log(`\nPoor defense by ${playerOne.teamName}`)
@@ -94,7 +94,7 @@ rl.on('line', function(input){
             console.log(`${playerOne.teamName} ${playerOne.teamPoints}`);
            
     
-    }else if(input === 'defend' && controls < 6){
+    }else if(input === 'defend' && controls <= 5){
         clear();
         console.log(`\nOH MY!!, the ${computer.teamName} dunk is no good!!`)
         console.log(`${computer.teamName} ${computer.teamPoints}`);
