@@ -1,0 +1,15 @@
+*{
+    text-align: center;
+}
+body{
+    background-image: url('pics/bball-background-image.png');
+    background-attachment: fixed;
+    background-size:cover;
+    font-family: 'Archivo Black', sans-serif;
+}
+p{
+    font-size: 180%;
+}
+.hide{
+    display:none;
+}
