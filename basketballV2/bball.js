@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let def = document.querySelector('#defense');
     let defend = document.querySelector('#defend');
     let steal = document.querySelector('#steal');
-    let dunk = document.querySelector('#dunk');
     let shoot = document.querySelector('#shoot');
     let three = document.querySelector('#three')
     let play = Math.floor(Math.random() * 9);
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     defend.addEventListener('click', (event)=>{
         let play = Math.floor(Math.random() * 9);        
         console.log(play)
-        if(play > 4){ai.score += aiPoints[Math.floor(Math.random() * 2)]; points.innerText = `Poor defensive play by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`}
+        if(play > 5){ai.score += aiPoints[Math.floor(Math.random() * 2)]; points.innerText = `Poor defensive play by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`}
         else{points.innerText = `Great defensive play by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`} 
 
         if(ai.score >= 21){
@@ -66,8 +65,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     steal.addEventListener('click', (event)=>{
         let play = Math.floor(Math.random() * 9);        
         console.log(play)
-        if(play > 4){ai.score += aiPoints[Math.floor(Math.random() * 2)]; points.innerText = `Bad gamble by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`}
-        else{points.innerText = `Great steal by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`}
+        if(play >= 3){ai.score += aiPoints[Math.floor(Math.random() * 2)]; points.innerText = `Bad gamble by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`;def.classList.add('hide')
+        off.classList.remove('hide')}
+        else{player.score += 2; points.innerText = `Great steal and dunk by ${player.name}\n${player.name} ${player.score} \n${ai.name} ${ai.score}`; off.classList.add('hide')
+        def.classList.remove('hide')}
 
         if(ai.score >= 21){
             points.innerText = `${ai.name} defeated ${player.name}!!\nFINAL:\n${player.name} ${player.score}\n${ai.name} ${ai.score}`
@@ -83,31 +84,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             points.innerText = `Next point WINS!!!`
         }
         
-        def.classList.add('hide')
-        off.classList.remove('hide')              
-    })
-    dunk.addEventListener('click', (event)=>{
-        let play = Math.floor(Math.random() * 9);
-        console.log(play);                
-        if(play > 2){player.score += 2; points.innerText = `What a dunk!!\n${player.name} ${player.score} \n${ai.name} ${ai.score}`;}
-        else{points.innerText = `What a block by ${ai.name}!!\n${player.name} ${player.score} \n${ai.name} ${ai.score}`}
-
-        if(ai.score >= 21){
-            points.innerText = `${ai.name} defeated ${player.name}!!\nFINAL:\n${player.name} ${player.score}\n${ai.name} ${ai.score}`
-            loss.classList.remove('hide');             
-            def.classList.add('hide')
-            off.classList.add('hide')
-        }else if(player.score >= 21){
-            points.innerText = `Congrats ${player.name}!! you have defeated ${ai.name}!!\nFINAL:\n${player.name} ${player.score}\n${ai.name} ${ai.score}`
-            win.classList.remove('hide');             
-            def.classList.add('hide')
-            off.classList.add('hide')
-        }else if(ai.score === 20 && player.score === 20){
-            points.innerText = `Next point WINS!!!`
-        }
-        
-        off.classList.add('hide')
-        def.classList.remove('hide')      
+                      
     })
     shoot.addEventListener('click', (event)=>{
         let play = Math.floor(Math.random() * 9); 
