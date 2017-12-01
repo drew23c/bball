@@ -1,1 +1,1 @@
-Download the basketballV2 folder and open up the HTML file and enjoy!!
+Download the zip file, extract and open the file /basketballV2/index.html file. Enjoy!!
