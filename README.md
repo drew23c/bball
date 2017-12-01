@@ -1,3 +1,1 @@
-# bball
-Basketball game
-Bballv2 is the working one.
+Download the basketballV2 folder and open up the HTML file and enjoy!!
